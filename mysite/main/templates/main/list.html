@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+
+{% block title%}
+Todo Lists
+{% endblock %}
+
+{% block content%}
+<h1>{{ls.title}}</h1>
+{% if ls is not None%}
+{% for item in ls.item_set.all %}
+<ul>
+    <li>{{item.text}}</li>
+</ul>
+
+{%endfor%}
+{% else %}
+<p>No Todo Lists</p>
+
+{%endif%}
+{% endblock %}
