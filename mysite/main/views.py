@@ -10,6 +10,23 @@ def home(response):
 
 def index(response, id):
     ls = ToDoList.objects.get(id=id)
+
+    if response.method == 'POST':
+        if response.POST.get('save'):
+            # when clicked on save button, update the selected checkbox
+            for item in ls.item_set.all():
+                if response.POST.get('c'+str(item.id)) == 'clicked':
+                    item.completed = True
+                else:
+                    item.completed = False
+                item.save()
+        elif response.POST.get('newItem'):
+            # when clicked on add button, add a new item
+            text = response.POST.get('new')
+            print("Text = ", text)
+            ls.item_set.create(text=text)
+            ls.save()
+
     return render(response, 'main/list.html', {'ls':ls})
 
 def create(response):

@@ -6,15 +6,21 @@ Todo Lists
 
 {% block content%}
 <h1>{{ls.title}}</h1>
-{% if ls is not None%}
-{% for item in ls.item_set.all %}
+<form method="post" action="#">
+    {% csrf_token %}
 <ul>
-    <li>{{item.text}}</li>
-</ul>
-
+{% for item in ls.item_set.all %}
+    {% if item.completed == True %}
+    <li><input type="checkbox" value="clicked" name="c{{item.id}}" checked="checked">{{item.text}}</input></li>
+    {% else %}
+    <li><input type="checkbox" value="clicked" name="c{{item.id}}">{{item.text}}</input></li>
+    {% endif %}
 {%endfor%}
-{% else %}
-<p>No Todo Lists</p>
+</ul>
+    <button type="submit" value="save" name="save">Save</button>
+    <input type="text" name="new"/>
+    <button type="submit" name="newItem" value="newItem">Add</button>
 
-{%endif%}
+</form>
+
 {% endblock %}
