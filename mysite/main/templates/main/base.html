@@ -5,9 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Turab's Website{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-    <div id="content" name="content">
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block" style="width:25%">
+        <h2>ToDo App</h2>
+        <a href="/" class="w3-bar-item w3-button">Home</a>
+        <a href="/create/" class="w3-bar-item w3-button">Create</a>
+        <a href="/2" class="w3-bar-item w3-button">View Lists</a>
+    </div>
+  
+    <div id="content" name="content" class="main" style="margin-left:25%">
         {% block content%}
         {% endblock %}
     </div>
