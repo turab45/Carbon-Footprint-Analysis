@@ -15,7 +15,8 @@
         <h2>ToDo App</h2>
         <a href="/" class="w3-bar-item w3-button">Home</a>
         <a href="/create/" class="w3-bar-item w3-button">Create</a>
-        <a href="/2" class="w3-bar-item w3-button">View Lists</a>
+        <a href="/view" class="w3-bar-item w3-button">View Lists</a>
+        <a href="/logout" class="w3-bar-item w3-button">Logout</a>
     </div>
   
     <div id="content" name="content" class="main" style="margin-left:25%">
@@ -23,8 +24,8 @@
             <div class="col-8">
                 <h1 class="mt-2"> My Site</h1>
                 <hr class="mt-0 mb-4">
-        {% block content%}
-        {% endblock %}
+                    {% block content%}
+                    {% endblock %}
             </div>
         </div>
     </div>
