@@ -6,9 +6,11 @@ Create Todo list
 
 {% block content%}
 <h1>Create</h1>
-<form method="post" action="/create/" >
+<form method="post" action="/create/" class="for-group">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" name="save">Create</button>
+    <div class="input-group mb-3">
+            <button class="btn btn-success" type="submit" name="save">Create New</button>
+        {{form.title}}
+    </div>
 </form>
 {% endblock %}
